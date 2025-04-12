@@ -1,4 +1,4 @@
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V2/refs/heads/main/UiREDzV2.lua")))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/norat202322/norat202322/refs/heads/main/README.md")))()
 
        local Window = MakeWindow({
          Hub = {
