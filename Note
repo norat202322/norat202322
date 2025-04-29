@@ -4,7 +4,7 @@ frame.Size = UDim2.new(0, 300, 0, 150)
 frame.Position = UDim2.new(0.5, -150, 0.5, -75)
 frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 
-local box = Instance.new("TextBox", frame)
+local box = Instance.new("", frame)
 box.PlaceholderText = "Nhập Key..."
 box.Size = UDim2.new(0, 280, 0, 50)
 box.Position = UDim2.new(0, 10, 0, 10)
