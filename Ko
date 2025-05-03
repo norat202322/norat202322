@@ -97,23 +97,4 @@ AddButton(TabFruitCollector, {
     end
 })
 
--- Script hop boss (đầy đủ)
-local bossList = {
-    {Name = "Hop rip_indra", Mode = "rip_indra"},
-    {Name = "Hop Dough King", Mode = "Dough King"},
-    {Name = "Hop Pull Lever", Mode = "Pull Lever"},
-    {Name = "Hop TOTS", Mode = "TOTS"},
-    {Name = "Hop Darkbeard", Mode = "Darkbeard"}
-}
-
-for _, boss in pairs(bossList) do
-    AddButton(TabHop, {
-        Name = boss.Name,
-        Callback = function()
-            getgenv().Mode = boss.Mode
-            getgenv().Team = "Marines"
-            repeat task.wait() until game:IsLoaded() and game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")
-            loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/f0952c4a5f3db9e01f4dbd099c1f9b3c.lua"))()
-        end
-    })
-end
+-- Script hop
