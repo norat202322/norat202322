@@ -5,19 +5,19 @@ local Window = MakeWindow({
         Title = "Norat Roblox",
         Acrylic = true,
         Theme = "Dark",
-        Animation = "Youtube: Norat Roblox"
+        Animation = "https://www.youtube.com/@norat_roblox"
     },
     Key = {
-        KeySystem = false,
+        KeySystem = true,
         Title = "Key System",
         Description = "",
-        KeyLink = "",
-        Keys = {""},
+        KeyLink = "https://yeumoney.com/HuzQy3U",
+        Keys = {"norat_roblox"},
         Notifi = {
             Notifications = true,
-            CorrectKey = "Running the Script...",
-            Incorrectkey = "The key is incorrect",
-            CopyKeyLink = "Copied to Clipboard"
+            CorrectKey = "Script đang chạy...",
+            Incorrectkey = "Sai key rồi!",
+            CopyKeyLink = "Đã sao chép link!"
         }
     }
 })
@@ -25,18 +25,28 @@ local Window = MakeWindow({
 MinimizeButton({
     Image = "http://www.roblox.com/asset/?id=118544376581900",
     Size = {60, 60},
-    Color = Color3.fromRGB(10, 10, 10),
+    Color = Color3.fromRGB(15, 15, 15),
     Corner = true,
-    Stroke = false,
-    StrokeColor = Color3.fromRGB(255, 0, 0)
+    Stroke = true,
+    StrokeColor = Color3.fromRGB(0, 255, 170)
 })
 
+-- Hiển thị logo góc trên UI
+local Logo = Instance.new("ImageLabel")
+Logo.Parent = game:GetService("CoreGui")
+Logo.BackgroundTransparency = 1
+Logo.Size = UDim2.new(0, 100, 0, 100)
+Logo.Position = UDim2.new(0.5, -50, 0, 10)
+Logo.Image = "http://www.roblox.com/asset/?id=118544376581900"
+Logo.ZIndex = 9999
+
+-- Tabs
 local TabInfo = MakeTab({Name = "Thông tin"})
 local TabBloxFruit = MakeTab({Name = "Script fam"})
-local TabFruitCollector = MakeTab({Name = "Script nhặt trái"})
-local TabHop = MakeTab({Name = "Script hop"})
+local TabFruitCollector = MakeTab({Name = "Nhặt trái"})
+local TabHop = MakeTab({Name = "Hop Server"})
 
--- Thông tin
+-- Nút liên kết
 AddButton(TabInfo, {
     Name = "Discord",
     Callback = function()
@@ -45,7 +55,7 @@ AddButton(TabInfo, {
 })
 
 AddButton(TabInfo, {
-    Name = "Youtuber",
+    Name = "YouTube Norat",
     Callback = function()
         setclipboard("https://www.youtube.com/@norat_roblox")
     end
@@ -88,13 +98,29 @@ AddButton(TabBloxFruit, {
     end
 })
 
--- Script nhặt trái
+-- Nhặt trái
 AddButton(TabFruitCollector, {
-    Name = "Turbo Lite Nhặt Trái",
+    Name = "Turbo Lite",
     Callback = function()
         getgenv().Team = "Marines"
         loadstring(game:HttpGet("https://raw.githubusercontent.com/TurboLite/Script/refs/heads/main/TraiCay.lua"))()
     end
 })
 
--- Script hop
+-- Hop
+AddButton(TabHop, {
+    Name = "Teddy Hop v1",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletgojo/Haidepzai/refs/heads/main/TeddyHop-FREE"))()
+    end
+})
+
+AddButton(TabHop, {
+    Name = "Auto Kill Tyrant",
+    Callback = function()
+        getgenv().Mode = "Tyrant"
+        getgenv().Team = "Marines"
+        repeat task.wait() until game:IsLoaded() and game.Players.LocalPlayer and game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Teddyseetink/Haidepzai/refs/heads/main/Auto-Tyrant-TEDDYHUB"))()
+    end
+})
